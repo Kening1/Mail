@@ -1,22 +1,12 @@
-<html>
-<head>
-	<title>Форма обратной связи</title>
-</head>
-<body>
-	<form method= "POST" action='functions/valid.php'>
-	Введите имя<input name="username" type="text">
-	<br><br>
-	Введите вашу почту<input name="user_email" type="text">
-	<br><br>
-	<select name="Category">
-	    <option value='Сообщение об ошибке'>Сообщение об ошибке</option>	 
-	    <option value='Добавить новый контент'>Добавить новый контент</option>	
-	    <option value='Другое'>Другое</option>	   
-	</select>
-	<br><br>
-	<textarea name="comment"></textarea>
-	<br><br>
-	<input type="submit" value= "Далее">
-</form>
-</body>
-</html>
+<?php
+$uri = $_SERVER['REQUEST_URI'];
+
+
+   if($uri==='/Mail/index' or $uri==='/Mail/' or $uri==='/Mail/index.php' or $uri==='/Mail/index.php?')
+    require 'form.php';
+   elseif ($uri ==='/Mail/index.php?=handle_form')
+   require 'functions/valid.php';
+   elseif ($uri === '/Mail/index.php?=show_result')
+   require 'functions/mail_sending.php';
+   else
+        require 'functions/error404.php';

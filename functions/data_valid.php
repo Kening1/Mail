@@ -1,18 +1,13 @@
 <?php
 
-namespace vendor\src\jlo\mail;
+namespace functions;
 
 class data_valid
 {
     
     
     public function valid_data()
-    {
-    echo 'Проверьте корректно ли введены данные ','<br><br>';
-    if (strlen($_POST['username'])<4 or !filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL))
-        echo '<form method= "POST" action="valid.php">';
-    else
-        echo '<form method= "POST" action="mail_sending.php">';
+    {   
         
         if (strlen($_POST['username'])<4)
         {

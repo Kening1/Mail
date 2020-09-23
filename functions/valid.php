@@ -8,8 +8,14 @@ namespace functions;
 </head>
 <body>
 	<?php 
-	require_once ("../vendor/src/jlo/mail/data_valid.php");
-	$data_valid=new \vendor\src\jlo\mail\data_valid();
+	require_once ("functions/data_valid.php");
+	$user_mail=$_POST['user_email'];
+	$username=$_POST['username'];
+	if (strlen($username)<4 or !filter_var($user_mail, FILTER_VALIDATE_EMAIL))
+	    echo '<form method= "POST" action="index.php?=handle_form">';
+	    else
+	        echo '<form method= "POST" action="index.php?=show_result">';
+	$data_valid=new \functions\data_valid();
 	$data_valid->valid_data();
 	?>
 	
@@ -22,7 +28,7 @@ namespace functions;
 	
 	
 </form>
-<form action="../index.php">
+<form action="/Mail/index.php?=form">
 	<button type="submit">Назад</button>	
 	</form>
 </body>

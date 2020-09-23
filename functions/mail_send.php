@@ -1,8 +1,9 @@
 <?php
 
-namespace vendor\src\jlo\mail;
-require_once '../vendor/autoload.php';
-require '../config.php';
+namespace functions;
+require_once 'vendor/autoload.php';
+require 'config.php';
+
 
 class mail_send
 {
@@ -38,5 +39,6 @@ class mail_send
             echo "Спасибо за ваше сообщение";
 
     }
+ 
 }
     ?>

@@ -31,31 +31,4 @@ elseif ($uri === '/Mail/index.php?=show_result')
     require 'src/mail_sending.php';
 else
     require 'src/error404.php';
-    
-    =========================
-    
-    server {
-    root /home/nik/projects/Mail/public;
-    server_name localhost;
-
-    index index.php;
-    location / {
-        # try to serve file directly, fallback to        index.php
-
-        try_files $uri /index.php$is_args$args;
-    }
-
-    location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
-        fastcgi_split_path_info ^(.+\.php)(/.*)$;
-        include fastcgi_params;
-
-        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
-        fastcgi_param DOCUMENT_ROOT $realpath_root;
-        internal;
-    }
-
-    error_log /var/log/nginx/yunews.error.log debug;
-
-}
-    */
+        */

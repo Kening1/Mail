@@ -13,6 +13,8 @@ use App\Classes\DataValid;
 	<?php 
 	$user_mail = isset($_POST['user_email']) ? $_POST['user_email'] : null;
 	$username = isset($_POST['username']) ? $_POST['username'] : null;
+	$category = isset($_POST['Category']) ? $_POST['Category'] : null;
+	
 	if (strlen($username) < 4 or !filter_var($user_mail, FILTER_VALIDATE_EMAIL))
 	    echo '<form method= "POST" action="index.php?=handle_form">';
 	    else

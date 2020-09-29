@@ -1,5 +1,8 @@
 <?php
-namespace functions;
+namespace App\Functions;
+
+use App\Classes\DataValid;
+    
 ?>
 
 <html>
@@ -8,15 +11,14 @@ namespace functions;
 </head>
 <body>
 	<?php 
-	require_once ("functions/data_valid.php");
-	$user_mail=$_POST['user_email'];
-	$username=$_POST['username'];
-	if (strlen($username)<4 or !filter_var($user_mail, FILTER_VALIDATE_EMAIL))
+	$user_mail = isset($_POST['user_email']) ? $_POST['user_email'] : null;
+	$username = isset($_POST['username']) ? $_POST['username'] : null;
+	if (strlen($username) < 4 or !filter_var($user_mail, FILTER_VALIDATE_EMAIL))
 	    echo '<form method= "POST" action="index.php?=handle_form">';
 	    else
 	        echo '<form method= "POST" action="index.php?=show_result">';
-	$data_valid=new \functions\data_valid();
-	$data_valid->valid_data();
+	$data_valid=new DataValid();
+	$data_valid->validData();
 	?>
 	
 	<br><br>

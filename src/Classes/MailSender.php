@@ -1,15 +1,12 @@
 <?php
 
-namespace functions;
-require_once 'vendor/autoload.php';
-require 'config.php';
+namespace App\Classes;
 
-
-class mail_send
+class MailSender
 {
 
 
-    public function send_email()
+    public function sendEmail()
     {
        
         $username=$_POST['username'];

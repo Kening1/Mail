@@ -1,1 +1,8 @@
-config.php
+/config.php
+# eclipse path's:
+/.buildpath
+/.project
+/.settings
+# end eclipse files
+/composer.lock
+/vendor
